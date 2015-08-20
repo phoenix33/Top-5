@@ -5,11 +5,21 @@
     <div class="well">
       <h1><%= @artist.name %></h1>
       <% if @artist.avatar_file_name != nil %>
-	      <%= image_tag @artist.avatar.url %>
+	      <p>
+		      <%= image_tag @artist.avatar.url %>
+		    </p>
 	     <% end %>
 			<% @artist.songs.each do |song| %>
 	  	<h3><%= link_to song.name, song %></a></h3>
 			<% end %>
+				
+			<p>
+          <%= link_to edit_artist_path(@artist) do %>  <span class="glyphicon glyphicon-pencil">	</span>
+          <% end %>  
+          <%= link_to @artist, method: :delete, data: { confirm: 'Are you sure?' } do %>
+          	<span class="glyphicon glyphicon-trash"></span>
+          <% end %>
+        </p>
     </div>
   </div>
 </div>
