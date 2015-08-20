@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="well">
+      <h1><%= @artist.name %></h1>
+      <% if @artist.avatar_file_name != nil %>
+	      <%= image_tag @artist.avatar.url %>
+	     <% end %>
+			<% @artist.songs.each do |song| %>
+	  	<h3><%= link_to song.name, song %></a></h3>
+			<% end %>
+    </div>
+  </div>
+</div>
